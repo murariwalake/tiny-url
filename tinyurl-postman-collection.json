@@ -1,0 +1,167 @@
+{
+  "info": {
+    "_postman_id": "445e4891-1fe4-46ca-9a45-321b808656e9",
+    "name": "TinyURL API",
+    "description": "API collection for TinyURL application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19036060"
+  },
+  "item": [
+    {
+      "name": "Ping",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{tiny-url-api-host}}/ping",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ],
+          "path": [
+            "ping"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create TinyURL",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"longUrl\": \"https://dev.mysql.com/doc/refman/8.3/en/create-index.html\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{tiny-url-api-host}}",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Redirect TinyURL",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{tiny-url-api-host}}/:tinyurl",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ],
+          "path": [
+            ":tinyurl"
+          ],
+          "variable": [
+            {
+              "key": "tinyurl",
+              "value": "Aa6"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All TinyURLs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{tiny-url-api-host}}",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete TinyURL",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{tiny-url-api-host}}/:tinyurl",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ],
+          "path": [
+            ":tinyurl"
+          ],
+          "variable": [
+            {
+              "key": "tinyurl",
+              "value": "Aa6"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get ZooKeeper Node Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{tiny-url-api-host}}/zookeeper/:zknode/stats",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ],
+          "path": [
+            "zookeeper",
+            ":zknode",
+            "stats"
+          ],
+          "variable": [
+            {
+              "key": "zknode",
+              "value": "counter"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get ZooKeeper Node Data",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{tiny-url-api-host}}/zookeeper/:zknode/data",
+          "host": [
+            "{{tiny-url-api-host}}"
+          ],
+          "path": [
+            "zookeeper",
+            ":zknode",
+            "data"
+          ],
+          "variable": [
+            {
+              "key": "zknode",
+              "value": "counter"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "tiny-url-api-host",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

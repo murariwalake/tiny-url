@@ -1,0 +1,17 @@
+.gradle
+.metadata
+.project
+.classpath
+.settings
+*.{node,a,o,dylib}
+*.log
+build/
+target/
+bin/
+test-output/
+test-results.xml
+.DS_Store
+.idea
+*.iml
+out/
+.run/
