@@ -9,6 +9,8 @@ import com.murariwalake.tinyurl.service.TinyUrlService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +41,7 @@ public class TinyUrlController {
 	}
 
 	@PostMapping
+	@Cachable(value = "tinyUrl", key = "#longUrl.get('longUrl')")
 	public ResponseEntity<Map> getTinyUrl(@RequestBody Map longUrl) {
 		String host = environment.getProperty("server.host", "localhost");
 		String port = environment.getProperty("server.port", "8080");
@@ -48,8 +51,10 @@ public class TinyUrlController {
 	}
 
 	@GetMapping("/{tinyUrl}")
+	@Cacheable(value = "longUrl", key = "#tinyUrl")
 	public ResponseEntity getLongUrl(@PathVariable String tinyUrl) {
-		return ResponseEntity.status(302).header("Location", tinyUrlService.getLongUrl(tinyUrl)).build();
+		String longUrl = tinyUrlService.getLongUrl(tinyUrl);
+		return ResponseEntity.status(302).header("Location", longUrl).build();
 	}
 
 	@GetMapping
@@ -58,6 +63,7 @@ public class TinyUrlController {
 	}
 
 	@DeleteMapping("/{tinyUrl}")
+	@CacheEvict(cacheNames = {"tinyUrl"}, key = "#tinyUrl", beforeInvocation = true)
 	public ResponseEntity deleteTinyUrl(@PathVariable String tinyUrl) {
 		tinyUrlService.deleteTinyUrl(tinyUrl);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
