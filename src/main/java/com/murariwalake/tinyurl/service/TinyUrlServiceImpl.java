@@ -5,6 +5,9 @@ import com.murariwalake.tinyurl.model.TinyUrlEntity;
 import com.murariwalake.tinyurl.util.Util;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -19,6 +22,7 @@ public class TinyUrlServiceImpl implements TinyUrlService {
 	private final CounterService counterService;
 
 	@Override
+	//@CachePut(cacheNames = "longUrl", key = "#result")
 	public String createTinyUrl(String longUrl) {
 		TinyUrlEntity existingTinyUrlEntity = tinyUrlDao.findByLongUrl(longUrl);
 		if (existingTinyUrlEntity != null) {
@@ -38,6 +42,7 @@ public class TinyUrlServiceImpl implements TinyUrlService {
 	}
 
 	@Override
+	@Cacheable(cacheNames = "longUrl", key = "#tinyUrl")
 	public String getLongUrl(String tinyUrl) {
 		TinyUrlEntity tinyUrlEntity = tinyUrlDao.findByTinyUrl(tinyUrl);
 		if (tinyUrlEntity != null) {
@@ -57,6 +62,7 @@ public class TinyUrlServiceImpl implements TinyUrlService {
 	}
 
 	@Override
+//	@CacheEvict(cacheNames = "longUrl", key = "#tinyUrl", beforeInvocation = true)
 	public void deleteTinyUrl(String tinyUrl) {
 		TinyUrlEntity tinyUrlEntity = tinyUrlDao.findByTinyUrl(tinyUrl);
 		if (tinyUrlEntity != null) {
