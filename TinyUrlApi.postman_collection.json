@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f28d0826-891e-49db-b477-ccb1b69f415d",
+		"_postman_id": "4662e58c-dbed-47ba-8494-0b0bb61ad1e8",
 		"name": "TinyURL API",
 		"description": "API collection for TinyURL application",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33676961"
+		"_exporter_id": "19036060"
 	},
 	"item": [
 		{
@@ -13,14 +13,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{tiny-url-api-host}}/api/v1/tinyUrl/ping",
+					"raw": "{{tiny-url-api-host}}/api/v1/tinyurl/ping",
 					"host": [
 						"{{tiny-url-api-host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"tinyUrl",
+						"tinyurl",
 						"ping"
 					]
 				}
@@ -34,7 +34,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"longUrl\": \"https://www.notion.so/System-design-85187c9bd21d4ee8b75bfb15fb778861\"\n}",
+					"raw": "{\n    \"longUrl\": \"https://github.com/murariwalake/tiny-url\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,14 +42,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{tiny-url-api-host}}/api/v1/tinyUrl",
+					"raw": "{{tiny-url-api-host}}/api/v1/tinyurl",
 					"host": [
 						"{{tiny-url-api-host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"tinyUrl"
+						"tinyurl"
 					]
 				}
 			},
@@ -71,7 +71,7 @@
 					"variable": [
 						{
 							"key": "tinyurl",
-							"value": "Aa6"
+							"value": "Aa4"
 						}
 					]
 				}
@@ -84,14 +84,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{tiny-url-api-host}}/api/v1/tinyUrl",
+					"raw": "{{tiny-url-api-host}}/api/v1/tinyurl",
 					"host": [
 						"{{tiny-url-api-host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"tinyUrl"
+						"tinyurl"
 					]
 				}
 			},
@@ -103,20 +103,20 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{tiny-url-api-host}}/api/v1/tinyUrl/:tinyurl",
+					"raw": "{{tiny-url-api-host}}/api/v1/tinyurl/:tinyurl",
 					"host": [
 						"{{tiny-url-api-host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"tinyUrl",
+						"tinyurl",
 						":tinyurl"
 					],
 					"variable": [
 						{
 							"key": "tinyurl",
-							"value": "hIqr"
+							"value": "Aa4"
 						}
 					]
 				}
@@ -129,14 +129,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{tiny-url-api-host}}/api/v1/tinyUrl/zookeeper/:zknode/stats",
+					"raw": "{{tiny-url-api-host}}/api/v1/tinyurl/zookeeper/:zknode/stats",
 					"host": [
 						"{{tiny-url-api-host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"tinyUrl",
+						"tinyurl",
 						"zookeeper",
 						":zknode",
 						"stats"
@@ -157,14 +157,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{tiny-url-api-host}}/api/v1/tinyUrl/zookeeper/:zknode/data",
+					"raw": "{{tiny-url-api-host}}/api/v1/tinyurl/zookeeper/:zknode/data",
 					"host": [
 						"{{tiny-url-api-host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"tinyUrl",
+						"tinyurl",
 						"zookeeper",
 						":zknode",
 						"data"

@@ -12,8 +12,4 @@ public class Util {
 		}
 		return result;
 	}
-
-	public static long random() {
-		return (long) (Math.random() * 100000L);
-	}
 }

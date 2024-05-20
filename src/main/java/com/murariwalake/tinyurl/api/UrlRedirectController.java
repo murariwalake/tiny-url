@@ -32,6 +32,6 @@ public class UrlRedirectController {
     @GetMapping("/{tinyUrl}")
     public ResponseEntity getLongUrl(@PathVariable String tinyUrl) {
         String longUrl = tinyUrlService.getLongUrl(tinyUrl);
-        return ResponseEntity.status(302).header("Location", longUrl).build();
+        return ResponseEntity.status(HttpStatus.MOVED_PERMANENTLY).header("Location", longUrl).build();
     }
 }

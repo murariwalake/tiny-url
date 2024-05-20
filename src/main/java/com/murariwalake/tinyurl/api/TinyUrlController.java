@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/tinyUrl")
+@RequestMapping("/api/v1/tinyurl")
 public class TinyUrlController {
     private final TinyUrlService tinyUrlService;
     private final ZooKeeper zooKeeper;
@@ -42,7 +42,7 @@ public class TinyUrlController {
         String tinyUrlKey = tinyUrlService.createTinyUrl(longUrl);
         String tinyUrl = String.format("http://%s:%s/%s", host, port, tinyUrlKey);
 
-        return ResponseEntity.ok(Map.of("tinyUrl", tinyUrl));
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("tinyUrl", tinyUrl));
     }
 
     @GetMapping

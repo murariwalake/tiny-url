@@ -22,7 +22,6 @@ public class TinyUrlServiceImpl implements TinyUrlService {
 	private final CounterService counterService;
 
 	@Override
-	//@CachePut(cacheNames = "longUrl", key = "#result")
 	public String createTinyUrl(String longUrl) {
 		TinyUrlEntity existingTinyUrlEntity = tinyUrlDao.findByLongUrl(longUrl);
 		if (existingTinyUrlEntity != null) {
@@ -62,7 +61,7 @@ public class TinyUrlServiceImpl implements TinyUrlService {
 	}
 
 	@Override
-//	@CacheEvict(cacheNames = "longUrl", key = "#tinyUrl", beforeInvocation = true)
+	@CacheEvict(cacheNames = "longUrl", key = "#tinyUrl", beforeInvocation = true)
 	public void deleteTinyUrl(String tinyUrl) {
 		TinyUrlEntity tinyUrlEntity = tinyUrlDao.findByTinyUrl(tinyUrl);
 		if (tinyUrlEntity != null) {
