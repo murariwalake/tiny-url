@@ -52,3 +52,5 @@ What all happens during application boot-up?
 - Fetch the range start value from zookeeper and set it in the counter service.
 - Initialize the counter value in the counter service.
 
+Refer the article [here](https://medium.com/@murariwalake/tiny-url-system-design-implementation-using-spring-boot-8cddc2a66350) for more details.
+
