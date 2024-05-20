@@ -3,8 +3,6 @@ package com.murariwalake.tinyurl.model;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,14 +17,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "tiny_url")
 public class TinyUrlEntity {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String tinyUrl;
 
 	private String longUrl;
-
-	private String tinyUrl;
 
 	private Date createdDate;
 }
