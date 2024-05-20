@@ -12,11 +12,19 @@ Local setup
 - mysql running on localhost:3307
   ```docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=tinyurl -p 3307:3306 mysql:latest```
 
+#### Clone the project:
+```git clone https://github.com/murariwalake/tiny-url.git```
+```cd tiny-url```
+
 #### Build the project:
 ```./mvnw clean install -DskipTests```
 
 #### Run the project:
 ```./mvnw spring-boot:run```
+
+Note: start.sh script can also be used to build and run the project. The script will build the project, create a docker image, and run the docker container.
+
+```./start.sh```
 
 The application will be accessible at ```http://localhost:8080/ping```
 
